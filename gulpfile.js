@@ -4,6 +4,7 @@ var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var del = require('del');
 var gutil = require('gulp-util');
+var cssnano = require('gulp-cssnano');
 
 function errHandle(err){
 	gutil.log(gutil.colors.red(err.message));
@@ -24,8 +25,11 @@ gulp.task('sass-compile', ['clean'], function(){
 	gulp.src('src/assets/sass/main.scss')
 		.pipe(plumber(errHandle))
 			.pipe(sourcemaps.init())
-				.pipe(sass())
+				.pipe(sass({
+					"outputStyle": "expanded"
+				}))
+				//.pipe(cssnano())
 			.pipe(sourcemaps.write('.'))
 		.pipe(plumber.stop())
 		.pipe(gulp.dest('src/assets/css'));
-})
+});

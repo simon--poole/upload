@@ -1,7 +1,5 @@
 /* Container file for simplicity */
 @import "variables.scss";
+@import "lib/kube.scss";
 @import "modules/index.scss";
 
-body {
-	color: red;
-}
