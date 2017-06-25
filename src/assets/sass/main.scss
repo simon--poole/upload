@@ -1,4 +1,8 @@
-/* Container file for simplicity */
+/* Global container file for simplicity */
+
+// Contains variables and mixins
 @import "variables.scss";
+// Global layout
 @import "modules/global.scss";
+// Uploader specific
 @import "modules/uploader.scss";

@@ -28,6 +28,7 @@ gulp.task('sass-compile', ['clean'], function(){
 				.pipe(sass({
 					"outputStyle": "expanded"
 				}))
+				//RELEASE: Un-comment
 				//.pipe(cssnano())
 			.pipe(sourcemaps.write('.'))
 		.pipe(plumber.stop())
