@@ -11,7 +11,7 @@ function errHandle(err){
     this.emit('end');
 }
 
-gulp.task('watch', function() {
+gulp.task('watch', ['sass-compile'], function() {
     gulp.watch('src/assets/sass/**/*.scss', ['sass-compile']);
 });
 

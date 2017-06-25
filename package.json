@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon --watch app/* --watch init.js init.js"
+    "start": "node src/init.js"
   },
   "dependencies": {
     "body-parser": "~1.17.1",

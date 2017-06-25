@@ -24,7 +24,6 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'assets')));
 
 app.use('/', routes);
 
@@ -37,9 +36,11 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
-	logger.err(err);
+	logger.error(err);
 	if(process.env.NODE_ENV == "development")
-  	res.json(err);
+  		res.json(err);
+	else if(err.status = 404)
+		res.sendStatus('404');
 	else res.sendStatus('503');
 });
 
