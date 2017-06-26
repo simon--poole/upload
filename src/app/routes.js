@@ -3,11 +3,8 @@ var router = express.Router();
 var static = express.static;
 var path = require('path');
 
+// Only hit in dev mode since Nginx handles it on live
 router.use('/assets', express.static(path.join(__dirname, '..','assets')));
-
-router.get('/zohoverify/verifyforzoho.html', (req, res, next) => {
-	res.sendFile(path.join(__dirname, '..','assets','verify.html'));
-});
 
 /* Get specific image */
 router.get('/i/:file', (req, res, next) => {
