@@ -1,12 +1,12 @@
 /* Global container file for simplicity */
 /* Coolors Exported Palette - coolors.co/190005-7a0f06-70798c-f5f1ed-dad2bc */
+/* Animation */
 /* Font Family */
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
 /* Flex stretch mix-ins */
 body {
   background: #190005;
-  background: url("/assets/img/bg.jpg") no-repeat center center fixed;
-  background-size: cover;
+  background: url("/assets/img/main.png") repeat;
   overflow: hidden;
   font-family: 'Montserrat', sans-serif;
   font-weight: normal;
@@ -22,9 +22,13 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: linear-gradient(to bottom, transparent 60%, #190005 100%);
+  background: linear-gradient(to bottom, transparent 60%, #000 100%);
   color: #FFF;
   text-shadow: 0px 0px 5px #000;
+}
+
+.container-fluid {
+  width: 80%;
 }
 
 .upload-form .input-button {
@@ -34,31 +38,56 @@ body {
   visibility: hidden;
 }
 
-.upload-form .container {
+.upload-form .container-fluid {
+  transition: all 0.3s linear;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 50px;
   background: rgba(25, 0, 5, 0.6);
+  background: url("/assets/img/container.png") repeat;
   border-radius: 2.5em;
   min-height: 300px;
-  height: 70%;
-  border: 1px solid #7a0f06;
+  max-height: 90%;
+  opacity: 0.8;
 }
 
-.upload-form .container span.upload-icon {
+.upload-form .container-fluid.hover-initial {
+  transform: scale(1.1) !important;
+}
+
+.upload-form .container-fluid.hover {
+  opacity: 1;
+  transform: scale(1.01);
+}
+
+.upload-form .container-fluid.drop {
+  opacity: 1;
+}
+
+.upload-form .container-fluid.drop span, .upload-form .container-fluid.drop h2, .upload-form .container-fluid.drop small {
+  display: none;
+}
+
+.upload-form .container-fluid span.upload-icon {
+  transition: all 0.3s linear;
   font-size: 20em;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
-.upload-form .container span.upload-icon:hover {
+.upload-form .container-fluid span.upload-icon:hover {
   opacity: 1;
   cursor: pointer;
 }
 
-.upload-form .container span.upload-label {
+.upload-form .container-fluid span.upload-label {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
+}
+
+.upload-form .container-fluid > * {
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=main.css.map */

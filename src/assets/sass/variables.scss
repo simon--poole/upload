@@ -1,5 +1,4 @@
 /* Coolors Exported Palette - coolors.co/190005-7a0f06-70798c-f5f1ed-dad2bc */
-$background-url: "/assets/img/bg.jpg";
 $background-full: rgba(25, 0, 5, 1);
 $background-60: rgba(25, 0, 5, 0.6);
 $accent: rgba(122, 15, 6, 1);
@@ -8,6 +7,10 @@ $light-1: rgba(245, 241, 237, 1);
 $light-2: rgba(218, 210, 188, 1);
 $white: #FFF;
 $black: #000;
+
+/* Animation */
+
+$bounce: cubic-bezier(.27,1.91,.62,.87);
 
 /* Font Family */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
