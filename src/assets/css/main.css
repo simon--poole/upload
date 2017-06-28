@@ -162,6 +162,7 @@ body {
 
 .upload-form .container-fluid {
   transition: all 0.3s linear;
+  box-shadow: 0px 0px 25px 5px transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -180,7 +181,10 @@ body {
 
 .upload-form .container-fluid.hover, .upload-form .container-fluid:hover {
   opacity: 1;
+  background: url("/assets/img/hover.png") repeat;
   transform: scale(1.01);
+  box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, 0.3);
+  z-index: 999;
 }
 
 .upload-form .container-fluid:hover {

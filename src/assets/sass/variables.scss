@@ -7,6 +7,8 @@ $light-1: rgba(245, 241, 237, 1);
 $light-2: rgba(218, 210, 188, 1);
 $white: #FFF;
 $black: #000;
+$black-60: rgba(0, 0, 0, 0.6);
+$black-30: rgba(0, 0, 0, 0.3);
 
 /* Animation */
 
@@ -26,7 +28,11 @@ $bounce: cubic-bezier(.27,1.91,.62,.87);
 	font-family: 'Montserrat', sans-serif;
 	font-weight: $weight;
 }
-
+@mixin rocket-animation(){
+	animation-duration: 60s;
+	animation-fill-mode: forwards;
+	animation-delay: 4s;
+}
 @keyframes flight-path {
   0% {
 	transform: rotate(0deg);

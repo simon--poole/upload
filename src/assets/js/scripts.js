@@ -34,6 +34,8 @@ $(document).ready(function () {
 			evt.preventDefault();
 			$box.removeClass('hover');
 			alert('Image uploading not completed yet');
+			var files = evt.originalEvent.dataTransfer.files;
+			console.log(files);
 			// $box.addClass('drop-initial drop')
 			// setTimeout(function () {
 			// 	$box.removeClass('drop-initial');
