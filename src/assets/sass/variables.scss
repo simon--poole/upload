@@ -26,3 +26,35 @@ $bounce: cubic-bezier(.27,1.91,.62,.87);
 	font-family: 'Montserrat', sans-serif;
 	font-weight: $weight;
 }
+
+@keyframes flight-path {
+  0% {
+	transform: rotate(0deg);
+  }
+  100% {
+	transform: rotate(180deg);
+  }
+}
+@keyframes rocket {
+  0%, 35% {
+	transform: translateY(0) scale(1);
+  }
+  36% {
+	transform: scaleY(-1);
+	bottom: 40%;
+  }
+  100% {
+	  top: -50px;
+	  bottom: auto;
+	  transform: scaleY(-1);
+  }
+}
+@keyframes particleAnimation
+{
+    from {
+        left: -100px;
+    }
+    to {
+        left: calc( 100% + 100px );
+    }
+}

@@ -1,3 +1,6 @@
+function rand(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 $(document).ready(function () {
 
 	var $box = $('.upload-form .container-fluid'),
@@ -45,4 +48,5 @@ $(document).ready(function () {
 		.on("drop", function (evt) {
 			evt.preventDefault();
 		});
+
 });
