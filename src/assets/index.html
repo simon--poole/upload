@@ -6,16 +6,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/assets/css/main.css">
-		<title>Personal Image Host</title>
+		<link rel="icon" type="image/png" href="/assets/img/ico.png" />
+		<title>imgrocket</title>
   </head>
   <body>
+	<div class="rocket"><img src="/assets/img/rocket.png" /></div>
 	<div class="cover">
 		<form method="POST" action="/uploadImage" class="upload-form" enctype="multipart/form-data">
 			<input type="file" id="files" class="input-button"/>
 			<div class="container-fluid text-center">
 					<span class="fa fa-cloud-upload fa-5x upload-icon"></span>
 					<h2 class="upload-label">Drag an image here, or click the icon to upload</h2>
-					<small class="muted">Note: Delete option not completed yet.</small>
 			</div>
 		</form>
 	</div>

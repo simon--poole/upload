@@ -22,13 +22,65 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: linear-gradient(to bottom, transparent 60%, #000 100%);
+  background: linear-gradient(to bottom, transparent 40%, #000 100%);
   color: #FFF;
   text-shadow: 0px 0px 5px #000;
 }
 
 .container-fluid {
   width: 80%;
+}
+
+@keyframes flight-path {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes rocket {
+  0%, 35% {
+    transform: translateY(0) scale(1);
+  }
+  36% {
+    transform: scaleY(-1);
+    bottom: 40%;
+  }
+  100% {
+    top: -50px;
+    bottom: auto;
+    transform: scaleY(-1);
+  }
+}
+
+body {
+  transform-origin: 50% 50%;
+}
+
+.rocket {
+  position: absolute;
+  bottom: 0;
+  left: 100px;
+  top: -50px;
+  right: 100px;
+  opacity: 0.6;
+  animation: flight-path;
+  animation-duration: 60s;
+  animation-fill-mode: forwards;
+  animation-delay: 4s;
+}
+
+.rocket img {
+  max-width: 200px;
+  max-height: 200px;
+  position: absolute;
+  bottom: -50px;
+  animation: rocket;
+  animation-duration: 60s;
+  animation-fill-mode: forwards;
+  animation-delay: 4s;
 }
 
 .upload-form .input-button {
@@ -45,7 +97,6 @@ body {
   align-items: center;
   flex-direction: column;
   padding: 50px;
-  background: rgba(25, 0, 5, 0.6);
   background: url("/assets/img/container.png") repeat;
   border-radius: 2.5em;
   min-height: 300px;
@@ -57,9 +108,13 @@ body {
   transform: scale(1.1) !important;
 }
 
-.upload-form .container-fluid.hover {
+.upload-form .container-fluid.hover, .upload-form .container-fluid:hover {
   opacity: 1;
   transform: scale(1.01);
+}
+
+.upload-form .container-fluid:hover {
+  cursor: pointer;
 }
 
 .upload-form .container-fluid.drop {
@@ -74,11 +129,6 @@ body {
   transition: all 0.3s linear;
   font-size: 20em;
   opacity: 0.8;
-}
-
-.upload-form .container-fluid span.upload-icon:hover {
-  opacity: 1;
-  cursor: pointer;
 }
 
 .upload-form .container-fluid span.upload-label {
