@@ -13,8 +13,8 @@ $(document).ready(function () {
 	});
 
 	// Handle file selected with input
-	$input.change(function(){
-		alert('Image uploading not completed yet');
+	$input.change(function(evt){
+			validateFiles(evt.originalEvent.target.files);
 	})
 
 	// Drag and drop event handlers
@@ -32,16 +32,10 @@ $(document).ready(function () {
 		})
 		.on('drop', function (evt) {
 			evt.preventDefault();
-			$box.removeClass('hover');
-			alert('Image uploading not completed yet');
+			var valid = true;
 			var files = evt.originalEvent.dataTransfer.files;
-			console.log(files);
-			// $box.addClass('drop-initial drop')
-			// setTimeout(function () {
-			// 	$box.removeClass('drop-initial');
-			// }, 100)
+			validateFiles(files);
 		});
-
 	// Prevent drag and drop on rest of page
 	$window
 		.on("dragover", function (evt) {
@@ -51,4 +45,43 @@ $(document).ready(function () {
 			evt.preventDefault();
 		});
 
+	function validateFiles(files){
+		var valid = true;
+		if(files.length > 1){
+				$box.notify('For now, you can only upload a single image at a time.', {
+					clickToHide: true,
+					autoHide: false,
+					elementPosition: 'bottom center',
+					className: 'error',
+				})
+				valid = false;
+			}
+			if(files[0].size > 20 * 1024 * 1024){
+				$box.notify('Sorry, we only accept files up to 20mb.', {
+					clickToHide: true,
+					autoHide: false,
+					elementPosition: 'bottom center',
+				 	className: 'error',
+				})
+				valid = false;
+			}
+			if(!files[0].type.match('image')){
+				$box.notify('We\'re an image host, silly. Upload an image.', {
+					clickToHide: true,
+					autoHide: false,
+					elementPosition: 'bottom center',
+					className: 'error',
+				})
+				valid = false;
+			}
+			if(valid){
+				$box.addClass('drop-valid');
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					$('#preview-img').attr('src', e.target.result);
+					$input.submit();
+				};
+				reader.readAsDataURL(files[0]);
+			}
+	}
 });

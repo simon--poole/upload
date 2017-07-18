@@ -1,5 +1,11 @@
 body {
 	transform-origin: 50% 50%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
 }
 .rocket {
 	position: absolute;
@@ -80,6 +86,21 @@ body {
 		visibility: hidden;
 	}
 	.container-fluid {
+		div.preview {
+			max-height: 75%;
+			max-width: 75%;
+			overflow: hidden;
+			img {
+				max-width: 75%;
+				max-width: 75%;
+			}
+		}
+		.preview, button {
+			display: none;
+		}
+		span, h2, small {
+			transition: transform 0.8s $takeoff;
+		}
 		&.hover-initial {
 			transform: scale(1.1)!important;
 		}
@@ -93,10 +114,23 @@ body {
 		&:hover {
 			cursor: pointer;
 		}
-		&.drop {
+		&.drop-valid {
+			&:hover {
+				z-index: initial;
+				box-shadow: none;
+				transform: none;
+			}
 			opacity: 1;
 			span, h2, small {
-				display: none;
+				transform: translateY(-1500px);
+			}
+			.preview {
+				display: block;
+				max-height: 75%;
+				max-width: 75%;
+			}
+			button {
+				display: block;
 			}
 		}
 		transition: all 0.3s linear;
@@ -106,7 +140,8 @@ body {
 		background: url('/assets/img/container.png') repeat;
 		border-radius: 2.5em;
 		min-height: 300px;
-		max-height: 90%;
+		max-height: 70%;
+		max-width: 70%;
 		opacity: 0.8;
 		span.upload-icon {
 			transition: all 0.3s linear;

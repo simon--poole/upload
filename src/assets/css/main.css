@@ -66,6 +66,12 @@ body {
 
 body {
   transform-origin: 50% 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
 }
 
 .rocket {
@@ -77,8 +83,9 @@ body {
   opacity: 0.6;
   animation: flight-path;
   animation-duration: 60s;
-  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
   animation-delay: 4s;
+  animation-direction: alternate;
 }
 
 .rocket img {
@@ -88,8 +95,9 @@ body {
   bottom: -50px;
   animation: rocket;
   animation-duration: 60s;
-  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
   animation-delay: 4s;
+  animation-direction: alternate;
 }
 
 .shooting-star {
@@ -171,8 +179,28 @@ body {
   background: url("/assets/img/container.png") repeat;
   border-radius: 2.5em;
   min-height: 300px;
-  max-height: 90%;
+  max-height: 70%;
+  max-width: 70%;
   opacity: 0.8;
+}
+
+.upload-form .container-fluid div.preview {
+  max-height: 75%;
+  max-width: 75%;
+  overflow: hidden;
+}
+
+.upload-form .container-fluid div.preview img {
+  max-width: 75%;
+  max-width: 75%;
+}
+
+.upload-form .container-fluid .preview, .upload-form .container-fluid button {
+  display: none;
+}
+
+.upload-form .container-fluid span, .upload-form .container-fluid h2, .upload-form .container-fluid small {
+  transition: transform 0.8s cubic-bezier(1, -0.29, 0.83, 0.67);
 }
 
 .upload-form .container-fluid.hover-initial {
@@ -191,12 +219,28 @@ body {
   cursor: pointer;
 }
 
-.upload-form .container-fluid.drop {
+.upload-form .container-fluid.drop-valid {
   opacity: 1;
 }
 
-.upload-form .container-fluid.drop span, .upload-form .container-fluid.drop h2, .upload-form .container-fluid.drop small {
-  display: none;
+.upload-form .container-fluid.drop-valid:hover {
+  z-index: initial;
+  box-shadow: none;
+  transform: none;
+}
+
+.upload-form .container-fluid.drop-valid span, .upload-form .container-fluid.drop-valid h2, .upload-form .container-fluid.drop-valid small {
+  transform: translateY(-1500px);
+}
+
+.upload-form .container-fluid.drop-valid .preview {
+  display: block;
+  max-height: 75%;
+  max-width: 75%;
+}
+
+.upload-form .container-fluid.drop-valid button {
+  display: block;
 }
 
 .upload-form .container-fluid span.upload-icon {

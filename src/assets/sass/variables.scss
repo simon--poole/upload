@@ -13,6 +13,7 @@ $black-30: rgba(0, 0, 0, 0.3);
 /* Animation */
 
 $bounce: cubic-bezier(.27,1.91,.62,.87);
+$takeoff: cubic-bezier(1,-0.29,.83,.67);
 
 /* Font Family */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
@@ -30,8 +31,9 @@ $bounce: cubic-bezier(.27,1.91,.62,.87);
 }
 @mixin rocket-animation(){
 	animation-duration: 60s;
-	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
 	animation-delay: 4s;
+	animation-direction: alternate;
 }
 @keyframes flight-path {
   0% {
