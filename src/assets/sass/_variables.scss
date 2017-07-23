@@ -1,0 +1,51 @@
+/* Coolors Exported Palette - coolors.co/190005-7a0f06-70798c-f5f1ed-dad2bc */
+$background-full: rgba(25, 0, 5, 1);
+$background-60: rgba(25, 0, 5, 0.6);
+$accent: rgba(122, 15, 6, 1);
+$muted: rgba(112, 121, 140, 1);
+$light-1: rgba(245, 241, 237, 1);
+$light-2: rgba(218, 210, 188, 1);
+$white: #FFF;
+$black: #000;
+$black-60: rgba(0, 0, 0, 0.6);
+$black-30: rgba(0, 0, 0, 0.3);
+
+/* Animation */
+
+$bounce: cubic-bezier(.27,1.45,.62,.87);
+$takeoff: cubic-bezier(1,-0.29,.83,.67);
+
+/* Responsive Widths */
+$mob-p-sm: (width 0px 519px) (orientation portrait);
+$mob-p-md: (width 520px 959px) (orientation portrait);
+$mob-l-sm: (height 0px 499px) (orientation landscape);
+$mob-l-md: (min-height 500px) (max-width 959px) (orientation landscape);
+$desktop-sm: (width 960px 1279px)(min-height 600px) (orientation landscape);
+$desktop-md: (width 1280px 1599px) (orientation landscape);
+$desktop-lg: (min-width 1600px) (orientation landscape);
+
+/* # Stars, each tier */
+$stars-1: 15;
+$stars-2: 150;
+$stars-3: 1500;
+
+/* Font Family */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+/* Flex stretch mix-ins */
+@mixin flex($direction: row, $justify: center, $align: center) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+	flex-direction: $direction;
+}
+@mixin montserrat($weight: normal){
+	font-family: 'Montserrat', sans-serif;
+	font-weight: $weight;
+}
+@mixin transition($attrib: all, $timing: 0.3s, $easing: linear){
+	transition: $attrib $timing $easing;
+}
+@mixin transitions($trans){
+	transition: trans;
+}

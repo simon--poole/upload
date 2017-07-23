@@ -1,0 +1,46 @@
+@mixin rocket-animation(){
+	animation-duration: 60s;
+	animation-iteration-count: infinite;
+	animation-delay: 4s;
+	animation-direction: alternate;
+}
+@keyframes flight-path {
+  0% {
+	transform: rotate(0deg);
+  }
+  100% {
+	transform: rotate(180deg);
+  }
+}
+@keyframes rocket {
+  0%, 35% {
+	transform: translateY(0) scale(1);
+  }
+  36% {
+	transform: scaleY(-1);
+	bottom: 40%;
+  }
+  100% {
+	  top: -50px;
+	  bottom: auto;
+	  transform: scaleY(-1);
+  }
+}
+.rocket {
+	position: absolute;
+	bottom: 0;
+	left: 100px;
+	top: -50px;
+	right: 100px;
+	opacity: 0.6;
+	animation: flight-path;
+	@include rocket-animation();
+	img {
+		max-width: 200px;
+		max-height: 200px;
+		position: absolute;
+		bottom: -50px;
+		animation: rocket;
+		@include rocket-animation();
+	}
+}

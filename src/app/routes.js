@@ -6,25 +6,24 @@ var multer  = require('multer')
 var id = require('shortid');
 var filetype = require('file-type');
 var tmp = require('os').tmpdir();
-
-var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, tmp+'\\uploader')
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now())
-  }
-})
-var upload = multer({ storage: storage});
+// var storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, tmp+'\\uploader')
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, file.fieldname + '-' + Date.now())
+//   }
+// })
+// var upload = multer({ storage: storage});
 // Only hit in dev mode since Nginx handles it on live
 router.use('/assets', express.static(path.join(__dirname, '..','assets')));
 
-router.post('/handleUpload', upload.single('image'), function(req, res, next){
-	console.log(req.file);
-	res.send('ok');
-})
+// router.post('/handleUpload', upload.single('image'), function(req, res, next){
+// 	console.log(req.file);
+// 	res.send('ok');
+// })
 
-/* Get specific image */
+/* Get specific image for testing without nginx*/
 router.get('/i/:file', (req, res, next) => {
 	res.sendFile(req.params.file, { root: path.join(__dirname, '../../uploads') });
 });

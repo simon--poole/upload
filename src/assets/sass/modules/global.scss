@@ -5,17 +5,13 @@ body {
 	@include montserrat();
 }
 
-.cover {
+.main-contents {
 	position: fixed;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	@include flex-center-all(column);
-	background: linear-gradient(to bottom, transparent 40%, $black 100%);
+	@include flex(column);
 	color: $white;
 	text-shadow: 0px 0px 5px $black;
-}
-.container-fluid {
-	width: 80%;
 }

@@ -1,8 +1,62 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css";
+
 /* Global container file for simplicity */
 
 // Contains variables and mixins
-@import "variables.scss";
+@import "_variables.scss";
+@import "_breakpoint.scss";
+
 // Global layout
 @import "modules/global.scss";
 // Uploader specific
 @import "modules/uploader.scss";
+//@import "modules/rocket.scss";
+@import "modules/stars.scss";
+
+.indicators {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999999;
+	div {
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		background: red;
+	}
+	.mps {
+		@include breakpoint($mob-p-sm){
+			background: green;
+		}
+	}
+	.mpm {
+		@include breakpoint($mob-p-md){
+			background: green;
+		}
+	}
+	.mls {
+		@include breakpoint($mob-l-sm){
+			background: green;
+		}
+	}
+	.mlm {
+		@include breakpoint($mob-l-md){
+			background: green;
+		}
+	}
+	.ds {
+		@include breakpoint($desktop-sm){
+			background: green;
+		}
+	}
+	.dm {
+		@include breakpoint($desktop-md){
+			background: green;
+		}
+	}
+	.dl {
+		@include breakpoint($desktop-lg){
+			background: green;
+		}
+	}
+}

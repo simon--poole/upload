@@ -4,32 +4,42 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="/assets/css/main.css">
-		<link rel="icon" type="image/png" href="/assets/img/ico.png" />
-		<title>imgrocket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="icon" type="image/png" href="/assets/img/ico.png" />
+    <title>imgrocket</title>
   </head>
   <body>
-	<div class="rocket"><img src="/assets/img/rocket.png" /></div>
-	<div class="cover">
-		<div class="shooting-star star-1"></div>
-		<div class="shooting-star star-2"></div>
-		<div class="shooting-star star-3"></div>
-		<div class="shooting-star star-4"></div>
-		<div class="shooting-star star-5"></div>
-		<form method="POST" action="/uploadImage" class="upload-form" enctype="multipart/form-data">
-			<input type="file" id="files" class="input-button" accept="image/*"/>
-			<div class="container-fluid text-center">
-					<div class="preview"><img id="preview-img" /></div>
-					<span class="fa fa-cloud-upload fa-5x upload-icon"></span>
-					<h2 class="upload-label">Drag an image here, or click to select an image.</h2>
-					<button type="button" class="btn btn-outline-success">Success</button>
-			</div>
-		</form>
-	</div>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	<script src="/assets/js/notify.min.js"></script>
-	<script src="/assets/js/scripts.js"></script>
+	<!-- <div class="rocket"><img src="/assets/img/rocket.png" /></div> -->
+	<div class="parallax-1"></div>
+	<div class="parallax-2"></div>
+  <div class="shooting-stars">
+	<div class="main-contents">
+		<div class="indicators">
+			<div class="mps"></div>
+			<div class="mpm"></div>
+			<div class="mls"></div>
+			<div class="mlm"></div>
+			<div class="ds"></div>
+			<div class="dm"></div>
+			<div class="dl"></div>
+		</div>
+      <div class="box text-center">
+        <form method="POST" action="/uploadImage" class="upload-form" enctype="multipart/form-data">
+          <input type="file" id="files" class="input-button" accept="image/*"/>
+          <!-- <div class="preview"><img id="preview-img" /></div> -->
+          <span class="fa fa-cloud-upload fa-5x upload-icon"></span>
+					<h2 class="upload-label">
+						<span class="pc">Drag an image here, or click to select an image.</span>
+						<span class="mob">Tap here to upload an image.</span>
+					</h2>
+          <!-- <button type="button" class="btn btn-outline-success">Success</button> -->
+        </form>
+      </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/assets/js/notify.min.js"></script>
+  <script src="/assets/js/scripts.js"></script>
   </body>
 </html>

@@ -1,20 +1,41 @@
 function rand(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(Math.random()*Math.random() * (max - min + 1)) + min;
 }
 $(document).ready(function () {
 
-	var $box = $('.upload-form .container-fluid'),
+	var $i = 0,
+	$box = $('.box'),
 	$input = $('.input-button'),
-	$window = $(window);
+	$window = $(window),
+	$h2 = $('h2.upload-label');
+
+	function createStar($i){
+		var data = {class: 'shooting-star star-'+$i};
+		$("<div>", data)
+			.css({
+				'animation-duration': rand(5, 35)+'s',
+				'transition-delay:': rand(12.5, 50)+'s',
+				'top': rand(0, 100)+'%',
+			})
+			.addClass($i%2 ? 'reverse' : '')
+			.appendTo('.shooting-stars')
+			.show()
+	}
+
+	while($i++ < 15)
+		createStar($i);
 
 	// Trigger select file window if window clicked
-	$('.upload-form').children().not('.input-button').on('click', function () {
+	$box.on('click', function (evt) {
 		$input.trigger('click');
 	});
+	$input.on('click', function(evt){
+		evt.stopImmediatePropagation();
+	})
 
 	// Handle file selected with input
 	$input.change(function(evt){
-			validateFiles(evt.originalEvent.target.files);
+		validateFiles(evt.originalEvent.target.files);
 	})
 
 	// Drag and drop event handlers
@@ -24,7 +45,7 @@ $(document).ready(function () {
 			$box.addClass('hover hover-initial');
 			setTimeout(function () {
 				$box.removeClass('hover-initial');
-			}, 100)
+			}, 1000)
 		})
 		.on('dragleave drop', function (evt) {
 			evt.preventDefault();
@@ -48,40 +69,40 @@ $(document).ready(function () {
 	function validateFiles(files){
 		var valid = true;
 		if(files.length > 1){
-				$box.notify('For now, you can only upload a single image at a time.', {
+				$h2.notify('For now, you can only upload a single image at a time.', {
 					clickToHide: true,
 					autoHide: false,
 					elementPosition: 'bottom center',
 					className: 'error',
-				})
+				});
 				valid = false;
 			}
-			if(files[0].size > 20 * 1024 * 1024){
-				$box.notify('Sorry, we only accept files up to 20mb.', {
-					clickToHide: true,
-					autoHide: false,
-					elementPosition: 'bottom center',
-				 	className: 'error',
-				})
-				valid = false;
-			}
-			if(!files[0].type.match('image')){
-				$box.notify('We\'re an image host, silly. Upload an image.', {
-					clickToHide: true,
-					autoHide: false,
-					elementPosition: 'bottom center',
-					className: 'error',
-				})
-				valid = false;
-			}
-			if(valid){
-				$box.addClass('drop-valid');
-				var reader = new FileReader();
-				reader.onload = function (e) {
-					$('#preview-img').attr('src', e.target.result);
-					$input.submit();
-				};
-				reader.readAsDataURL(files[0]);
-			}
+		if(files[0].size > 20 * 1024 * 1024){
+			$h2.notify('Sorry, we only accept files up to 20mb.', {
+				clickToHide: true,
+				autoHide: false,
+				elementPosition: 'bottom center',
+				className: 'error',
+			});
+			valid = false;
+		}
+		if(!files[0].type.match('image')){
+			$h2.notify('We\'re an image host, silly. Upload an image.', {
+				clickToHide: true,
+				autoHide: false,
+				elementPosition: 'bottom center',
+				className: 'error',
+			});
+			valid = false;
+		}
+		if(valid){
+			$box.addClass('drop-valid');
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				$('#preview-img').attr('src', e.target.result);
+				//$input.submit();
+			};
+			reader.readAsDataURL(files[0]);
+		}
 	}
 });
