@@ -13,16 +13,16 @@ $(document).ready(function () {
 		var data = {class: 'shooting-star star-'+$i};
 		$("<div>", data)
 			.css({
-				'animation-duration': rand(5, 35)+'s',
-				'transition-delay:': rand(12.5, 50)+'s',
+				'animation-duration': rand(30, 60)+'s',
+				'transition-delay:': rand(12.5, 25)+'s',
 				'top': rand(0, 100)+'%',
 			})
 			.addClass($i%2 ? 'reverse' : '')
 			.appendTo('.shooting-stars')
-			.show()
+			.show();
 	}
 
-	while($i++ < 15)
+	while($i++ < 4)
 		createStar($i);
 
 	// Trigger select file window if window clicked
@@ -68,7 +68,7 @@ $(document).ready(function () {
 
 	function validateFiles(files){
 		var valid = true;
-		if(files.length > 1){
+		if(files.length !== 1 ){
 				$h2.notify('For now, you can only upload a single image at a time.', {
 					clickToHide: true,
 					autoHide: false,
@@ -92,6 +92,8 @@ $(document).ready(function () {
 				autoHide: false,
 				elementPosition: 'bottom center',
 				className: 'error',
+				gap: 5,
+				arrowSize: 10
 			});
 			valid = false;
 		}
@@ -103,6 +105,6 @@ $(document).ready(function () {
 				//$input.submit();
 			};
 			reader.readAsDataURL(files[0]);
-		}
+		} else $box.addClass('drop-invalid');
 	}
 });
