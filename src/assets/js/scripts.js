@@ -13,16 +13,16 @@ $(document).ready(function () {
 		var data = {class: 'shooting-star star-'+$i};
 		$("<div>", data)
 			.css({
-				'animation-duration': rand(30, 60)+'s',
-				'transition-delay:': rand(12.5, 25)+'s',
+				'animation-duration': rand(40, 120)+'s',
+				'transition-delay:': rand(15, 35)+'s',
 				'top': rand(0, 100)+'%',
 			})
-			.addClass($i%2 ? 'reverse' : '')
+			.addClass($i%2 ? '' : 'reverse')
 			.appendTo('.shooting-stars')
 			.show();
 	}
 
-	while($i++ < 4)
+	while($i++ < 20)
 		createStar($i);
 
 	// Trigger select file window if window clicked

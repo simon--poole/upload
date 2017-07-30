@@ -1,0 +1,70 @@
+
+@keyframes shootingStar {
+	from {
+		left: -100px;
+	}
+	to {
+		left: calc( 100% + 100px );
+	}
+}
+@keyframes shootingStarReverse {
+	from {
+		right: -100px;
+	}
+	to {
+		right: calc( 100% + 100px );
+	}
+}
+
+/* Foreground shooting stars */
+
+.shooting-stars {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	//background: linear-gradient(to bottom, $black-60 0%, transparent 30%, transparent 70%, $black-60 100%);
+	background: radial-gradient(ellipse at bottom, rgba(27,39,53,0.2) 0%, rgba(9, 10, 15, 0.6) 80%, black 100%);
+	z-index: 3;
+}
+
+
+.shooting-star {
+	display: none;
+	position: fixed;
+	width: 1px;
+	height: 1px;
+	background-color: transparent;
+	animation-name: shootingStar;
+	animation-timing-function: ease-out;
+	animation-iteration-count: infinite;
+	animation-fill-mode: forwards;
+	animation-direction: normal;
+	&::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		content: "";
+		z-index: 4;
+		width: 100px;
+		height: 1px;
+		background: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.4) 100%);
+	}
+	&.reverse {
+		animation-name: shootingStarReverse;
+		&::before {
+			background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.4) 100%);
+		}
+	}
+}
+
+@for $i from 0 through $shooting-stars {
+	.star-#{$i} {
+		&::before {
+			transform: scale(#{(random() - 100) / 50 });
+		}
+	}
+}
+

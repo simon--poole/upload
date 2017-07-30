@@ -1,18 +1,22 @@
 @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css";
 
-/* Global container file for simplicity */
 
 // Contains variables and mixins
 @import "_variables.scss";
-@import "_breakpoint.scss";
+@import "modules/responsive/_breakpoint.scss";
 
 // Global layout
-@import "modules/global.scss";
-// Uploader specific
-@import "modules/uploader.scss";
-//@import "modules/rocket.scss";
-@import "modules/stars.scss";
+@import "modules/global/global.scss";
 
+// Uploader specific
+@import "modules/global/uploader.scss";
+
+// Eye candy
+@import "modules/animations/shooting-stars.scss";
+//@import "modules/animations/rocket.scss";
+@import "modules/animations/parallax.scss";
+
+// TODO: Dev indicators for responsive breakpoints;
 .indicators {
 	position: fixed;
 	top: 0;

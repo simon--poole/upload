@@ -1,0 +1,75 @@
+/* Responsive SCSS version of Saransh Sinha's gorgeous codepen.
+ * Original credit: https://codepen.io/saransh/
+ * ----
+ * This uses vw and vh units rather than pixels, so as to be completely responsive.
+ * Be aware this is less supported in older browsers.
+ * ----
+ * I also added some extra optional attributes such as star color,
+ * but these can safely be left default.
+ * ----
+ * Usage:
+ *
+
+ 	.class {
+		@include parallax-layer(nStars, starSize, animationDuration, starColor, animationEasing);
+	}
+
+	Duplicating Saransh's version is as simple as this:
+
+
+
+
+
+
+	Note: Background is left to you to set, the mix-in creates the stars only.
+* /
+
+
+
+/* Keyframes */
+@keyframes parallax {
+	from {
+		transform: translateY(0)
+	}
+	to {
+		transform: translateY(-100vh);
+	}
+}
+@function multiple-box-shadows($stars, $size, $color){
+	$box-shadow: random(100)+'vw ' + random(100)+'vh ' + $color;
+	@for $i from 1 through $stars {
+		 $box-shadow: $box-shadow + ', ' + random(100)+'vw ' + random(100)+'vh ' + $color;
+	}
+	@return unquote($box-shadow);
+}
+@mixin parallax-layer($stars, $size: 1px, $timer: 50s, $color: white, $easing: linear){
+	$shadows: multiple-box-shadows($stars, $size, $color);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: $size;
+	height: $size;
+	background: transparent;
+	pointer-events: none;
+	box-shadow: $shadows;
+	animation: parallax $timer $easing infinite;
+	border-radius: 50%;
+	&:after {
+		content: " ";
+		position: absolute;
+		width: $size;
+		height: $size;
+		top: 100vh;
+		box-shadow: $shadows;
+		border-radius: 50%;
+	}
+}
+.parallax-1 {
+	@include parallax-layer($stars-1);
+}
+.parallax-2 {
+	@include parallax-layer($stars-2, 3px, 33s);
+}
+.parallax-3 {
+	@include parallax-layer($stars-3, 5px, 75);
+}

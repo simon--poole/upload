@@ -25,9 +25,10 @@ $desktop-md: (width 1280px 1599px) (orientation landscape);
 $desktop-lg: (min-width 1600px) (orientation landscape);
 
 /* # Stars, each tier */
-$stars-1: 15;
-$stars-2: 150;
-$stars-3: 1500;
+$stars-3: 50;
+$stars-2: 200;
+$stars-1: 700;
+$shooting-stars: 8;
 
 /* Font Family */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
@@ -49,3 +50,4 @@ $stars-3: 1500;
 @mixin transitions($trans){
 	transition: trans;
 }
+
