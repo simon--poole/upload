@@ -19,8 +19,7 @@ router.use('/assets', express.static(path.join(__dirname, '..','assets')));
 
 /* Get specific image for testing without nginx*/
 router.get('/i/:file', (req, res, next) => {
-	if(process.env.NODE_ENV == 'development') res.sendFile(req.params.file, { root: path.join(__dirname, '../../uploads') });
-	else res.sendStatus('403');
+	res.sendFile(req.params.file, { root: path.join(__dirname, '../../uploads') });
 });
 
 /* Send home page for all non-image links */

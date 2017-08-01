@@ -105,6 +105,6 @@ $(document).ready(function () {
 				//$input.submit();
 			};
 			reader.readAsDataURL(files[0]);
-		} else $box.addClass('drop-invalid');
+		}
 	}
 });
