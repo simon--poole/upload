@@ -22,7 +22,7 @@ $(document).ready(function () {
 			.show();
 	}
 
-	while($i++ < 20)
+	while($i++ < 8)
 		createStar($i);
 
 	// Trigger select file window if window clicked

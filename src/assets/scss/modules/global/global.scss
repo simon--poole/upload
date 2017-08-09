@@ -18,6 +18,17 @@ body {
 	animation-fill-mode: forwards;
 }
 
+.stars-overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	//background: linear-gradient(to bottom, $black-60 0%, transparent 30%, transparent 70%, $black-60 100%);
+	background: radial-gradient(ellipse at bottom, rgba(27,39,53,0.2) 0%, rgba(9, 10, 15, 0.6) 80%, black 100%);
+	z-index: 3;
+}
+
 .main-contents {
 	position: fixed;
 	top: 0;

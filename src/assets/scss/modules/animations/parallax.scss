@@ -65,11 +65,20 @@
 	}
 }
 .parallax-1 {
-	@include parallax-layer($stars-1);
+	@include parallax-layer($stars-mob-1);
+	@include breakpoint($desktop-md){
+		@include parallax-layer($stars-1);
+	}
 }
 .parallax-2 {
-	@include parallax-layer($stars-2, 3px, 33s);
+	@include parallax-layer($stars-mob-2, 3px, 33s);
+	@include breakpoint($desktop-md){
+		@include parallax-layer($stars-2, 3px, 33s);
+	}
 }
 .parallax-3 {
-	@include parallax-layer($stars-3, 5px, 75);
+	@include parallax-layer($stars-mob-3, 5px, 75);
+	@include breakpoint($desktop-md){
+		@include parallax-layer($stars-3, 5px, 75);
+	}
 }
